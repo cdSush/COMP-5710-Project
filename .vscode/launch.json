@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/generate_requirements.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--input", "Input CFR File/CFR-117.130.md",
+                "--output", "real outputs/requirements.json",
+                "--structure", "real outputs/expected_structure.json",
+                "--cfr", "21 CFR 117.130"
+            ]
+        }
+    ]
+}
