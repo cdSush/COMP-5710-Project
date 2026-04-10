@@ -1,0 +1,7 @@
+[
+  {"requirement_id": "REQ-117.130-001A", "description": "Conduct hazard analysis for each type of food", "source": "21 CFR 117.130", "parent": "REQ-117.130-001"},
+  {"requirement_id": "REQ-117.130-001B", "description": "Hazard analysis must be documented", "source": "21 CFR 117.130", "parent": "REQ-117.130-001"},
+  {"requirement_id": "REQ-117.130-002A", "description": "Biological hazards must be considered", "source": "21 CFR 117.130", "parent": "REQ-117.130-002"},
+  {"requirement_id": "REQ-117.130-002B", "description": "Chemical hazards must be considered", "source": "21 CFR 117.130", "parent": "REQ-117.130-002"},
+  {"requirement_id": "REQ-117.130-003A", "description": "Assess severity and probability of hazards", "source": "21 CFR 117.130", "parent": "REQ-117.130-003"}
+]

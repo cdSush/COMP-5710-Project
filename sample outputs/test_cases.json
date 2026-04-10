@@ -1,0 +1,27 @@
+[
+  {
+    "test_case_id": "TC-001",
+    "requirement_id": "REQ-117.130-001A",
+    "description": "Verify that a hazard analysis is conducted for each type of food."
+  },
+  {
+    "test_case_id": "TC-002",
+    "requirement_id": "REQ-117.130-001B",
+    "description": "Verify that the hazard analysis is documented."
+  },
+  {
+    "test_case_id": "TC-003",
+    "requirement_id": "REQ-117.130-002A",
+    "description": "Verify that biological hazards are identified and considered."
+  },
+  {
+    "test_case_id": "TC-004",
+    "requirement_id": "REQ-117.130-002B",
+    "description": "Verify that chemical hazards are identified and considered."
+  },
+  {
+    "test_case_id": "TC-005",
+    "requirement_id": "REQ-117.130-003A",
+    "description": "Verify that severity and probability of hazards are assessed."
+  }
+]
