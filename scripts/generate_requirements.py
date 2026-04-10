@@ -17,6 +17,9 @@ import json
 import re
 import argparse
 
+romans = { '(i)', '(ii)', '(iii)', '(iv)', '(v)', '(vi)', '(vii)', '(viii)', '(ix)', '(x)'}
+filter_out_chars = {"E", "F"}
+
 def rightmost_alpha(req_id):
     matches = re.findall(r'[A-Za-z]', req_id)
     return matches[-1] if matches else None
@@ -80,16 +83,14 @@ for line in lines:
         if parent[-1:].isalpha():
             while parent[-1:].isalpha():
                 parent = parent[:-1]
-                if parent in structure_map:
-                    if structure_char not in structure_map[parent]:
-                        structure_map[parent].append(structure_char)
-                else:
+                if parent in structure_map and structure_char not in filter_out_chars and not any(roman in description for roman in romans):
+                    structure_map[parent].append(structure_char)
+                elif structure_char not in filter_out_chars and not any(roman in description for roman in romans):
                     structure_map[parent] = [structure_char]
         else:
-            if parent in structure_map:
-                if structure_char not in structure_map[parent]:
-                    structure_map[parent].append(structure_char)
-            else:
+            if parent in structure_map and structure_char not in filter_out_chars and not any(roman in description for roman in romans):
+                structure_map[parent].append(structure_char)
+            elif structure_char not in filter_out_chars and not any(roman in description for roman in romans):
                 structure_map[parent] = [structure_char]
 
 
