@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: Current File",
+            "name": "Python Debugger: generate requirements script",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/scripts/generate_requirements.py",
@@ -15,6 +15,18 @@
                 "--output", "real outputs/requirements.json",
                 "--structure", "real outputs/expected_structure.json",
                 "--cfr", "21 CFR 117.130"
+            ]
+        },
+        {
+            "name": "Python Debugger: test case script",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/generate_test_cases.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--inputR", "real outputs/requirements.json",
+                "--inputS", "real outputs/expected_structure.json",
+                "--output", "real outputs/test_cases.json"
             ]
         }
     ]
