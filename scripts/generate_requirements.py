@@ -4,12 +4,14 @@ This script parses a Markdown file containing requirements and atomic rules, the
 Arguments:
     --input / -i   : Path to the input Markdown (.md) file containing requirements.
     --output / -o  : Path to the output JSON file where parsed requirements will be saved.
+    --structure / -s : Path to the output JSON file where the structure map will be saved.
     --cfr / -c     : CFR section identifier (e.g., "21 CFR 117.130") to be used as the "source" field for each requirement.
                      This argument is treated as a string and can contain spaces; if using in a terminal, enclose in quotes (e.g., "21 CFR 117.130").
 Functionality:
     - Reads the input Markdown file, extracting requirement IDs and atomic rule descriptions.
     - Associates each atomic rule with its parent requirement and the provided CFR section.
     - Outputs a JSON file containing a list of requirement objects, each with an ID, description, source, and parent.
+    - Outputs a JSON file containing the structure map of requirements.
 Note:
     The CFR section argument is not validated for format; it is used as provided.
 """
