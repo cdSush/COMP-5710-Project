@@ -24,18 +24,6 @@
     "parent": "REQ-117.130-001"
   },
   {
-    "requirement_id": "REQ-117.130-001E",
-    "description": "- Determine hazards requiring preventive controls",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-001"
-  },
-  {
-    "requirement_id": "REQ-117.130-001F",
-    "description": "- (2) Hazard analysis must be written",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-001"
-  },
-  {
     "requirement_id": "REQ-117.130-002A",
     "description": "- Biological hazards",
     "source": "21 CFR 117.130",
@@ -60,99 +48,15 @@
     "parent": "REQ-117.130-002"
   },
   {
-    "requirement_id": "REQ-117.130-002E",
-    "description": "- Unintentionally introduced",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-002"
-  },
-  {
-    "requirement_id": "REQ-117.130-002F",
-    "description": "- Intentionally introduced for economic gain",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-002"
-  },
-  {
     "requirement_id": "REQ-117.130-003A",
     "description": "- (1) Evaluate identified hazards",
     "source": "21 CFR 117.130",
     "parent": "REQ-117.130-003"
   },
   {
-    "requirement_id": "REQ-117.130-003A1",
-    "description": "- (i) Assess severity and probability of hazard occurrence",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003A"
-  },
-  {
-    "requirement_id": "REQ-117.130-003A2",
-    "description": "- (ii) Evaluate environmental pathogens for ready-to-eat foods",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003A"
-  },
-  {
     "requirement_id": "REQ-117.130-003B",
     "description": "- (2) Consider effects on safety of finished food",
     "source": "21 CFR 117.130",
     "parent": "REQ-117.130-003"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B1",
-    "description": "- (i) Formulation of the food",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B2",
-    "description": "- (ii) Facility and equipment condition, function, design",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B3",
-    "description": "- (iii) Raw materials and other ingredients",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B4",
-    "description": "- (iv) Transportation practices",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B5",
-    "description": "- (v) Manufacturing/processing procedures",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B6",
-    "description": "- (vi) Packaging and labeling activities",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B7",
-    "description": "- (vii) Storage and distribution",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B8",
-    "description": "- (viii) Intended or reasonably foreseeable use",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B9",
-    "description": "- (ix) Sanitation, including employee hygiene",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
-  },
-  {
-    "requirement_id": "REQ-117.130-003B10",
-    "description": "- (x) Any other relevant factors (e.g., temporal/natural toxins)",
-    "source": "21 CFR 117.130",
-    "parent": "REQ-117.130-003B"
   }
 ]
