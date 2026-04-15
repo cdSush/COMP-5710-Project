@@ -34,3 +34,39 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+  # this job handles the verification step        
+  run-verification:
+    #specifies virtual env
+    runs-on: ubuntu-latest
+    # job will only run if build completes successfully
+    needs: build
+    steps:
+        # checks out the code so we can access the files
+      - uses: actions/checkout@v4
+        # sets up python so we can run the verification script
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      # runs the verification script with the appropriate file paths
+      - name: Run Verification
+        run: python scripts/verification.py -r "real outputs/requirements.json" -t "real outputs/test_cases.json"
+
+  # this job handles the validation step
+  run-validation:
+    # specifies virtual env
+    runs-on: ubuntu-latest
+    # job will only run if build completes successfully
+    needs: build
+    steps:
+        # checks out the code so we can access the files
+      - uses: actions/checkout@v4
+        # sets up python so we can run the validation script
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+        # runs the validation script with the appropriate file paths
+      - name: Run Validation
+        run: python scripts/validation.py -r "real outputs/requirements.json" -e "real outputs/expected_structure.json"
