@@ -86,7 +86,7 @@ jobs:
         # LOG 6: validation summary
       - name: Run Validation
         run: |
-          if python scripts/validation.py -r "real outputs/requirements.json" -t "real outputs/expected_structure.json"; then
+          if python scripts/validation.py -r "real outputs/requirements.json" -e "real outputs/expected_structure.json"; then
             echo "### Validation Forensics: PASSED" >> $GITHUB_STEP_SUMMARY
           else
             echo "### Validation Forensics: FAILED" >> $GITHUB_STEP_SUMMARY
