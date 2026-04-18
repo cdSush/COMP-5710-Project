@@ -2,12 +2,18 @@
 import json
 import argparse
 import sys
+import myLogger
+
+logger = myLogger.giveMeLoggingObject() # logging for forensics
 
 # set up args for the two file paths
 parser = argparse.ArgumentParser()
 parser.add_argument("--requirements", "-r", required=True)
 parser.add_argument("--expected", "-e", required=True)
 args = parser.parse_args()
+
+# LOG 3: tracing inputs (checkpoint)
+logger.info(f"FORENSIC ALERT: Starting validation. \nSource: {args.requirements}, \nExpected Structure: {args.expected}")
 
 # read in both files
 with open(args.requirements) as f:
@@ -43,9 +49,12 @@ print(f"---Validation Report---")
 # print and fail any mismatches
 if errors:
     for e in errors:
-        print(e)
+        # LOG 4: detect validation errors
+        logger.error(f"FORENSIC ALERT: Validation error - {e}")
     print("\nvalidation FAILED")
+    logger.error("FORENSIC ALERT: Validation Result: FAILED")
     sys.exit(1)
 else:
     print("All structures match expected.")
     print("\nvalidation PASSED")
+    logger.info("FORENSIC ALERT: Validation Result: PASSED")

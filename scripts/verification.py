@@ -2,12 +2,18 @@
 import json
 import argparse
 import sys
+import myLogger
+
+logger = myLogger.giveMeLoggingObject() # logging for forensics
 
 # set up args so we can pass in file paths from command line
 parser = argparse.ArgumentParser()
 parser.add_argument("--requirements", "-r", required=True)
 parser.add_argument("--test-cases", "-t", required=True)
 args = parser.parse_args()
+
+# LOG 1: tracing inputs (checkpoint)
+logger.info(f"FORENSIC ALERT: Starting verification. \nSource: {args.requirements}, \nTests: {args.test_cases}")
 
 # read in files
 with open(args.requirements) as f:
@@ -31,10 +37,14 @@ print(f"Requirements missing test cases: {len(missing)}")
 
 # if anything is missing, print them out and exit with an error so ci fails
 if missing:
-    print("\nMissing test coverage for:")
+    # LOG 2: requirement skipped/missing (detection)
+    logger.warning(f"FORENSIC ALERT: {len(missing)} requirements are missing test coverage")
     for m in sorted(missing):
-        print(f"  - {m}")
+        logger.info(f"Missing ID: {m}") # trace each req missing test cases
     print("\nverification FAILED")
+    logger.error("FORENSIC ALERT: Verification Result: FAILED")
     sys.exit(1)
 else:
+    logger.info("FORENSIC ALERT: All requirements have test cases")
+    logger.info("FORENSIC ALERT: Verification Result: PASSED")
     print("\nverification PASSED")

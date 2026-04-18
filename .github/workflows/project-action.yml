@@ -50,8 +50,23 @@ jobs:
         with:
           python-version: '3.x'
       # runs the verification script with the appropriate file paths
+      # LOG 5: verification summary
       - name: Run Verification
-        run: python scripts/verification.py -r "real outputs/requirements.json" -t "real outputs/test_cases.json"
+        run: |
+          if python scripts/verification.py -r "real outputs/requirements.json" -t "real outputs/test_cases.json"; then
+            echo "### Verification Forensics: PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### Verification Forensics: FAILED" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+      
+      - name: Upload Verification Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-forensics
+          path: scripts/PROJECT.LOGGER.log
+
 
   # this job handles the validation step
   run-validation:
@@ -68,5 +83,19 @@ jobs:
         with:
           python-version: '3.x'
         # runs the validation script with the appropriate file paths
+        # LOG 6: validation summary
       - name: Run Validation
-        run: python scripts/validation.py -r "real outputs/requirements.json" -e "real outputs/expected_structure.json"
+        run: |
+          if python scripts/validation.py -r "real outputs/requirements.json" -t "real outputs/expected_structure.json"; then
+            echo "### Validation Forensics: PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### Validation Forensics: FAILED" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+      
+      - name: Upload Validation Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-forensics
+          path: scripts/PROJECT-LOGGER.log
