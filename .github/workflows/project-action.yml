@@ -35,8 +35,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-  # this job handles the verification step        
-  run-verification:
+  run-v-and-v:
     #specifies virtual env
     runs-on: ubuntu-latest
     # job will only run if build completes successfully
@@ -44,11 +43,12 @@ jobs:
     steps:
         # checks out the code so we can access the files
       - uses: actions/checkout@v4
-        # sets up python so we can run the verification script
+        # sets up python so we can run the scripts
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
       # runs the verification script with the appropriate file paths
       # LOG 5: verification summary
       - name: Run Verification
@@ -59,32 +59,11 @@ jobs:
             echo "### Verification Forensics: FAILED" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
-      
-      - name: Upload Verification Logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: verification-forensics
-          path: scripts/PROJECT.LOGGER.log
 
-
-  # this job handles the validation step
-  run-validation:
-    # specifies virtual env
-    runs-on: ubuntu-latest
-    # job will only run if build completes successfully
-    needs: build
-    steps:
-        # checks out the code so we can access the files
-      - uses: actions/checkout@v4
-        # sets up python so we can run the validation script
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-        # runs the validation script with the appropriate file paths
-        # LOG 6: validation summary
+      # runs the validation script with the appropriate file paths
+      # LOG 6: validation summary
       - name: Run Validation
+        if: always()
         run: |
           if python scripts/validation.py -r "real outputs/requirements.json" -e "real outputs/expected_structure.json"; then
             echo "### Validation Forensics: PASSED" >> $GITHUB_STEP_SUMMARY
@@ -93,9 +72,10 @@ jobs:
             exit 1
           fi
       
-      - name: Upload Validation Logs
+      # Combined Forensic Archive
+      - name: Upload Forensic Logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: validation-forensics
+          name: project-forensics
           path: scripts/PROJECT-LOGGER.log
